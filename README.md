@@ -16,10 +16,10 @@ Desenvolver um website que reúna dados abertos da Secretaria da Saúde de Carua
 #####INSTRUÇÕES
 
 - Depois de extrair o projeto é necessário criar o diretório "/etc/fuseki" e dar permissões de escrita e leitura aos usuários para rodar o fuseki:
-No terminal: $ sudo mkdir /etc/fuseki/ && sudo chmod 777 -R /etc/fuseki/
+  - No terminal: $ sudo mkdir /etc/fuseki/ && sudo chmod 777 -R /etc/fuseki/
 
 - Arquivos de configuração do fuseki (caso seja necessário uma autenticação no servidor fuseki)
-Arquivo: /etc/fuseki/shiro.ini
+  - Arquivo: /etc/fuseki/shiro.ini
 
 ###############
 

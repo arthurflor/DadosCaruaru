@@ -132,6 +132,7 @@ public class uploadConvert extends HttpServlet {
         
         uploadConvert.setDataset(request.getParameter("nomeDataset"));
         uploadConvert.setNomeGraph(request.getParameter("nomeGraph"));
+        uploadConvert.setN3(request.getParameter("nomeGraph"));
         
         String uploadPath = getServletContext().getRealPath("") +
                             UPLOAD_DIRECTORY + File.separator + 

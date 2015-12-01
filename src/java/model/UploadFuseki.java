@@ -19,7 +19,8 @@ public class UploadFuseki {
         org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
         
         HttpAuthenticator admin = new SimpleAuthenticator("admin", "admin".toCharArray());
-        String serviceURI = "http://"+request.getServerName()+":"+uploadConvert.getport()+"/dadoscaruaru/fuseki/" + dataset;
+        String serviceURI = "http://"+request.getServerName()+":"+uploadConvert.getport()+"/dadoscaruaru/" + dataset;
+//        String serviceURI = "http://localhost:8080/dadoscaruaru/saude";
         
         DatasetAccessor accessor;
         accessor = DatasetAccessorFactory.createHTTP(serviceURI, admin);

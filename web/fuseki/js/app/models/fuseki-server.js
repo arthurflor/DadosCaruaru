@@ -139,6 +139,7 @@ define(
         var path = window.location.pathname.replace( /\/[^/]*$/, "" );
  	// Need some kind of relative URL
  	// return path ; - See JENA-868 breaks the "info"
+        
 	return sprintf( "%s//%s:%s%s",  window.location.protocol, window.location.hostname, window.location.port, path );
       }
     } );

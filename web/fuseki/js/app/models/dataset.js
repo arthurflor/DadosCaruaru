@@ -20,7 +20,8 @@ define(
       initialize: function( datasetDescription, baseURL, mgmtURL ) {
         this.set( datasetDescription );
         this.set( {
-                    baseURL: baseURL,
+                    baseURL: location.protocol + "//" + location.host + "/dadoscaruaru",
+//                     baseURL: "http://localhost:8080/dadoscaruaru",
                     mgmtURL: mgmtURL,
                     counts: {},
                     countPerformed: false,

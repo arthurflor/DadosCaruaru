@@ -8,9 +8,4 @@
       <description>Keep a copy of the generated servlet class' java code.</description>
     </property>
   </jsp-config>
-  <security-permission>
-            <security-permission-spec> permission java.io.FilePermission
-                "/fuseki/upload/*", "read,write"; 
-            </security-permission-spec>
-        </security-permission>
 </glassfish-web-app>

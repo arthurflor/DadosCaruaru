@@ -84,6 +84,10 @@
         <servlet-name>uploadConvert</servlet-name>
         <servlet-class>controller.uploadConvert</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>querySearch</servlet-name>
+        <servlet-class>controller.sparqlSearch</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>QueryValidator</servlet-name>
         <url-pattern>/validate/query</url-pattern>
@@ -196,6 +200,10 @@
     <servlet-mapping>
         <servlet-name>uploadConvert</servlet-name>
         <url-pattern>/fuseki/uploadConvert</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>querySearch</servlet-name>
+        <url-pattern>/querySearch</url-pattern>
     </servlet-mapping>
     <mime-mapping>
         <extension>rdf</extension>

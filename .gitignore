@@ -2,3 +2,4 @@
 .mtj.tmp/
 hs_err_pid*
 /build
+.directory

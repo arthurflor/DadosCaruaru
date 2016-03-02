@@ -20,13 +20,13 @@ public class Search {
         org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
              
         // create a sparql query by hand
-        String queryString = "SELECT ?subject ?predicate ?object WHERE { ?subject ?predicate ?object } LIMIT 25";
-        Query query = QueryFactory.create(queryString);
-//        Query query = QueryFactory.create(sparqlSearch);
+//        String queryString = "";
+//        Query query = QueryFactory.create(queryString);
+        Query query = QueryFactory.create(querySearch);
              
         // print out the query
 //        query.serialize(System.out);
-        System.out.println("\nQuery utilizada: " + queryString + "\n");
+//        System.out.println("\nQuery utilizada: " + querySearch + "\n");
         
         // TODO Auto-generated method stub
         QueryExecution qExec = QueryExecutionFactory.sparqlService("http://"+request.getServerName()+":"+sparqlSearch.getport()+"/dadoscaruaru/" + datasetSearch, query);

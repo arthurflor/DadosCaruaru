@@ -62,7 +62,15 @@ public class sparqlSearch extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException { 
+        
+        String datasetSearch = request.getParameter("param");
+        String querySearch = "SELECT ?subject ?predicate ?object WHERE { ?subject ?predicate ?object }";
+//        String querySearch = request.getParameter("");
+        System.out.println(datasetSearch);
+
+        new Search().search(request, datasetSearch, querySearch);
+        
         processRequest(request, response);
     }
 
@@ -77,15 +85,7 @@ public class sparqlSearch extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String datasetSearch = request.getParameter("datasetSearch");
-        String querySearch = request.getParameter("querySearch");
-        
-        new Search().search(request, datasetSearch, querySearch);
-        
         processRequest(request, response);
-  
-        
     }
 
     /**

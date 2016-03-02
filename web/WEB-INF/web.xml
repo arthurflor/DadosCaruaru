@@ -137,6 +137,26 @@
         <servlet-name>PingServlet</servlet-name>
         <url-pattern>/fuseki/$/ping</url-pattern>
     </servlet-mapping>
+    
+    
+    <servlet-mapping>
+        <servlet-name>BackupListServlet</servlet-name>
+        <url-pattern>/$/backups-list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DumpServlet</servlet-name>
+        <url-pattern>/$/dump</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServerStatusServlet</servlet-name>
+        <url-pattern>/$/server</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PingServlet</servlet-name>
+        <url-pattern>/$/ping</url-pattern>
+    </servlet-mapping>
+    
+    
     <servlet>
         <servlet-name>ActionDatasets</servlet-name>
         <servlet-class>org.apache.jena.fuseki.mgt.ActionDatasets</servlet-class>
@@ -194,6 +214,39 @@
         <servlet-name>ActionSleep</servlet-name>
         <url-pattern>/fuseki/$/sleep/*</url-pattern>
     </servlet-mapping>
+    
+    
+    <servlet-mapping>
+        <servlet-name>ActionDatasets</servlet-name>
+        <url-pattern>/$/datasets/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActionStats</servlet-name>
+        <url-pattern>/$/stats/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActionLogs</servlet-name>
+        <url-pattern>/$/logs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActionBackup</servlet-name>
+        <url-pattern>/$/backup/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActionBackup</servlet-name>
+        <url-pattern>/$/backups/*</url-pattern>
+        <!-- Alt spelling -->
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActionTasks</servlet-name>
+        <url-pattern>/$/tasks/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActionSleep</servlet-name>
+        <url-pattern>/$/sleep/*</url-pattern>
+    </servlet-mapping>
+    
+    
     <!--    <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>-->

@@ -9,6 +9,6 @@ $( document ).ready(function() {
                 document.getElementById("lista_dataset_html").innerHTML += outString + "<br>";
             }
             
-        }, 1000);
+        }, 500);
     
 });

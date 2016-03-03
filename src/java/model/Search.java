@@ -1,13 +1,17 @@
 
 package model;
 
-import javax.servlet.http.HttpServletRequest;
-import org.apache.jena.query.Query;
-import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QueryFactory;
-import org.apache.jena.query.ResultSetFormatter;
+import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryExecution;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import controller.sparqlSearch;
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -15,42 +19,49 @@ import controller.sparqlSearch;
  */
 public class Search {
     
-    public void search(HttpServletRequest request, String datasetSearch, String querySearch){
+    public ArrayList<ArrayList> search(HttpServletRequest request, String datasetSearch, String querySearch){
         
         org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
              
-        // create a sparql query by hand
-//        String queryString = "";
-//        Query query = QueryFactory.create(queryString);
         Query query = QueryFactory.create(querySearch);
-             
-        // print out the query
-//        query.serialize(System.out);
-//        System.out.println("\nQuery utilizada: " + querySearch + "\n");
-        
-        // TODO Auto-generated method stub
+
         QueryExecution qExec = QueryExecutionFactory.sparqlService("http://"+request.getServerName()+":"+sparqlSearch.getport()+"/dadoscaruaru/" + datasetSearch, query);
-//        ResultSet rs = qExec.execSelect() ;
-             
-//        for ( ; rs.hasNext() ; ){
-//            // the next solution i.e. returned result set
-//            QuerySolution rb = rs.nextSolution() ;     
-//            System.out.println("aqui" + rb);
-// 
-//            // get nodes from the solution and cast them appropriately
-//                 
-//            Literal concept = (Literal) rb.get("concept") ;     // ?title is just an untyped literal
-//            //Literal fileURI = (Literal) rb.get("fileURI") ;   // ?fileURI is a uri and so will be a resource
-//            //  Literal bla = (Literal) rb.get("bla") ;
-//                 
-//            // print out the result
+        ResultSet rs = qExec.execSelect();
+        
+        boolean check = false;
+        ArrayList<String> colunas = new ArrayList<>();
+        ArrayList<ArrayList> resultado = new ArrayList<>();
+        
+        while (rs.hasNext()){
+            
+            QuerySolution rb = rs.nextSolution() ;     
+            Iterator<String> line = rb.varNames();
+            ArrayList<String> arrayLine = new ArrayList<>();
+                        
+            if (!check){
+                check=true;
+                while(line.hasNext()){
+                    colunas.add(line.next());
+                }
+            }
+            
+            for (int i=0; i<colunas.size(); i++){
+                RDFNode concept = rb.get(colunas.get(i));
+                arrayLine.add(concept.toString());
+                
+//                System.out.println(concept);
+            }
+            resultado.add(arrayLine);            
+          
+//            System.out.println(line.next());
 //            System.out.println(concept);
-//        }
+        }
         
-        ResultSetFormatter.out(System.out, qExec.execSelect(), query) ;
-             
-        qExec.close() ; 
+//        ResultSetFormatter.out(System.out, qExec.execSelect(), query) ;
+
+        qExec.close();
         
+        return resultado;
     }
     
 }

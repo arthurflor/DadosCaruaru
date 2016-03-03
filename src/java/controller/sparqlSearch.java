@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -65,11 +66,15 @@ public class sparqlSearch extends HttpServlet {
             throws ServletException, IOException { 
         
         String datasetSearch = request.getParameter("param");
-        String querySearch = "SELECT ?subject ?predicate ?object WHERE { ?subject ?predicate ?object }";
-//        String querySearch = request.getParameter("");
-        System.out.println(datasetSearch);
+        String querySearch = "SELECT ?predicate ?object ?subject WHERE { ?predicate ?object ?subject }";
+//        System.out.println(datasetSearch);
 
-        new Search().search(request, datasetSearch, querySearch);
+        Search se = new Search();
+        ArrayList<ArrayList> consulta = se.search(request, datasetSearch, querySearch);
+        
+        System.out.println(consulta.get(2).get(0));
+        System.out.println(consulta.get(2).get(1));
+        System.out.println(consulta.get(2).get(2));
         
         processRequest(request, response);
     }

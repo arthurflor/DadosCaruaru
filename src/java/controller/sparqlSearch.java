@@ -72,9 +72,10 @@ public class sparqlSearch extends HttpServlet {
         Search se = new Search();
         ArrayList<ArrayList> consulta = se.search(request, datasetSearch, querySearch);
         
-        System.out.println(consulta.get(2).get(0));
-        System.out.println(consulta.get(2).get(1));
-        System.out.println(consulta.get(2).get(2));
+  
+        
+        
+        
         
         processRequest(request, response);
     }

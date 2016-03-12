@@ -8,10 +8,12 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.RegrasGraficos;
 import model.Search;
 
 /**
@@ -52,7 +54,6 @@ public class sparqlSearch extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -72,10 +73,17 @@ public class sparqlSearch extends HttpServlet {
         Search se = new Search();
         ArrayList<ArrayList> consulta = se.search(request, datasetSearch, querySearch);
         
-  
         
+//        System.out.println(consulta.get(2).get(0));
+//        System.out.println(consulta.get(2).get(1));
+//        System.out.println(consulta.get(2).get(2));
         
+        RegrasGraficos regra = new RegrasGraficos();
+        String codigoDoGrafico = regra.getScriptGraph(consulta, datasetSearch);
         
+        request.setAttribute("dados", codigoDoGrafico); //categorylist is an arraylist      contains object of class category  
+        request.setAttribute("query", datasetSearch); //categorylist is an arraylist      contains object of class category  
+        getServletConfig().getServletContext().getRequestDispatcher("/resultado.jsp").forward(request,response);
         
         processRequest(request, response);
     }

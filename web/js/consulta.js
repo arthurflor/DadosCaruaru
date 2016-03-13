@@ -17,6 +17,6 @@ $( document ).ready(function() {
             
             document.getElementById("lista_dataset_html").innerHTML += "</div>\n";
             
-        }, 500);
+        }, 1000);
     
 });

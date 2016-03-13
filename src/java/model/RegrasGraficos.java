@@ -213,7 +213,7 @@ public class RegrasGraficos {
 
                     if (j == aux) { //se o elemento não estiver no array, adicione no array
                         colunas.add(colunasSplit[colunasSplit.length - 1]);
-                        System.out.println("Coluna " + colunasSplit[colunasSplit.length - 1] + " adicionada!");
+//                        System.out.println("Coluna " + colunasSplit[colunasSplit.length - 1] + " adicionada!");
                         //saida += colunasSplit[colunasSplit.length-1]+"<br>"; //length-1: último elemento do array
                         //System.out.println("Coluna "+consulta.get(i).get(0).toString()+" adicionada com sucesso!" );
                     }
@@ -229,7 +229,7 @@ public class RegrasGraficos {
         for (int i = 0; i < consulta.size(); i++) {
             String[] linhaSplit = consulta.get(i).get(2).toString().split("/");
             linhas.add(linhaSplit[linhaSplit.length-1]);
-            System.out.println("linha adicionada: "+ linhaSplit[linhaSplit.length-1]);
+//            System.out.println("linha adicionada: "+ linhaSplit[linhaSplit.length-1]);
             //saida += linhaSplit[4] + "<br>";
             i += quantidadeColunas - 1; // os próximos i's terão as mesmas linhas, a estratégia foi pegar o valor de colunas e pular, indo assim para pŕoxima linha
         } // fecha for

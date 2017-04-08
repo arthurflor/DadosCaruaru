@@ -1,0 +1,30 @@
+/* AUTOMATICALLY GENERATED ON Sat Apr 08 15:44:55 BRT 2017*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.WebResourcePermission "/";
+  permission javax.security.jacc.WebUserDataPermission "/";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.WebRoleRefPermission "", "**";
+  permission javax.security.jacc.WebRoleRefPermission "IRIValidator", "**";
+  permission javax.security.jacc.WebRoleRefPermission "ActionBackup", "**";
+  permission javax.security.jacc.WebRoleRefPermission "ServerStatusServlet", "**";
+  permission javax.security.jacc.WebRoleRefPermission "DataValidator", "**";
+  permission javax.security.jacc.WebRoleRefPermission "uploadConvert", "**";
+  permission javax.security.jacc.WebRoleRefPermission "PingServlet", "**";
+  permission javax.security.jacc.WebRoleRefPermission "querySearch", "**";
+  permission javax.security.jacc.WebRoleRefPermission "default", "**";
+  permission javax.security.jacc.WebRoleRefPermission "DumpServlet", "**";
+  permission javax.security.jacc.WebRoleRefPermission "ActionStats", "**";
+  permission javax.security.jacc.WebRoleRefPermission "UpdateValidator", "**";
+  permission javax.security.jacc.WebRoleRefPermission "jsp", "**";
+  permission javax.security.jacc.WebRoleRefPermission "ActionLogs", "**";
+  permission javax.security.jacc.WebRoleRefPermission "ActionTasks", "**";
+  permission javax.security.jacc.WebRoleRefPermission "QueryValidator", "**";
+  permission javax.security.jacc.WebRoleRefPermission "ActionDatasets", "**";
+  permission javax.security.jacc.WebRoleRefPermission "BackupListServlet", "**";
+  permission javax.security.jacc.WebRoleRefPermission "ActionSleep", "**";
+};
+

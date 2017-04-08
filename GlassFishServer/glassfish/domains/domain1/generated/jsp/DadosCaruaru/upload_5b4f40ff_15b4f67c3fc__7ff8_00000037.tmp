@@ -1,0 +1,44 @@
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix ex:	<http://example.org/> .
+@prefix dc:     <http://purl.org/dc/elements/1.1/> .
+@prefix xl:	<http://purl.org/NET/xlwrap#> .
+@prefix dbpedia-owl: <http://dbpedia.org/ontology/> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix xvcard: <http://www.bcn.cat/data/v8y/xvcard#> .
+@prefix :       <http://myApplication/configuration#> .
+@prefix cin:    <http://www.cin.ufpe.br/ConsumerComplaint/> .
+@prefix dbpprop: <http://dbpedia.org/property/> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix upe:	<http://www.upe.br/> .
+@prefix dbpedia-owl-year: <http://dbpedia.org/ontology/Year/> .
+
+{ [] a xl:Mapping ;
+	xl:offline "false"^^xsd:boolean ;
+
+	xl:template [
+		xl:fileName "/home/iago/Dropbox/dados/0. tudo ok/Valor Serviços Hospitalares (n3)/VALORSERVICOSHOSPITALARES-ANO.xls" ;
+		xl:sheetNumber "0" ;
+		xl:templateGraph :ValueOfHospitalServices ;
+		xl:transform [
+                   a xl:RowShift
+                   ; xl:breakCondition "ALLEMPTY(A2)"
+            ]
+	] .
+}
+
+
+:ValueOfHospitalServices{
+	[ xl:uri "'http://www.upe.br/ValueOfHospitalServices/Procedure/' & SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(A2, '/', ''),'-',''),'[.]','')"^^xl:Expr]  a upe:HospitalProcedure 
+	    ;dbpedia-owl-year:2008 "B2"^^xl:Expr
+	    ;dbpedia-owl-year:2009 "C2"^^xl:Expr
+	    ;dbpedia-owl-year:2010 "D2"^^xl:Expr
+	    ;dbpedia-owl-year:2011 "E2"^^xl:Expr
+	    ;dbpedia-owl-year:2012 "F2"^^xl:Expr
+	    ;dbpedia-owl-year:2013 "G2"^^xl:Expr
+	    ;dbpedia-owl-year:2014 "H2"^^xl:Expr
+	    ;dbpedia-owl-year:2015 "I2"^^xl:Expr
+	    ;dbpedia-owl:Total "J2"^^xl:Expr
+}
